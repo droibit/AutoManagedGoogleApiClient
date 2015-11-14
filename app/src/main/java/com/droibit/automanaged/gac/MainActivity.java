@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity
                            //.addOnConnectionFailedListener(this)
                            .enableAutoManage(this, this)
                            .build();
-        Wearable.MessageApi.addListener(mGoogleApiClient, this);
 
         mTextView = ((TextView) findViewById(android.R.id.text1));
     }
@@ -63,8 +62,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onConnectionSuspended(int cause) {
         Log.d(BuildConfig.BUILD_TYPE, "#onConnectionSuspended :" + cause);
-
-        Wearable.MessageApi.addListener(mGoogleApiClient, this);
 
         mTextView.setText("Google Play services suspended by " + GmsStrings.toSuspendedString(cause));
     }
